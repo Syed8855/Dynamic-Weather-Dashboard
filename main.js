@@ -1,4 +1,3 @@
-const apiKey ="";
 
 document.getElementById('search').addEventListener('click',async() =>{
     const city = document.getElementById('city').value;
@@ -10,7 +9,7 @@ document.getElementById('search').addEventListener('click',async() =>{
     try{
         // 1. Current Weather
         const res = await fetch(
-         `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`   
+         `/.netlify/functions/getWeather?city=${encodeURIComponent(city)}`   
         );
         console.log("API Response Status:", res.status);
         if(!res.ok) throw new Error("city not found");
@@ -70,7 +69,7 @@ if (document.body.classList.contains("light")) {
         <img src ="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="">
         `;
         // 2. 5-Day forecast
-        const forecastRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`);
+        const forecastRes = await fetch(`/.netlify/functions/getWeather?city=${encodeURIComponent(city)}&forecast=true`);
         const forecastData = await forecastRes.json();
         //Extract temps at 12:00 each day 
         const labels =[];
@@ -156,7 +155,7 @@ document.getElementById('geoBtn').addEventListener('click',()=>{
             try{
                  // Current weather by coordinates
                 const res = await fetch(
-                    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+                    `/.netlify/functions/getWeather?lat=${lat}&lon=${lon}`
                 );
                 if (!res.ok) throw new Error("Unable to fetch weather");
                 const data = await res.json();
