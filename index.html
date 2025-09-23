@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width,initial-scale =1.0" >
+        <title>Weather Dashboard</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>🌍 Weather Dashboard</h2>
+            <!--Dark Mode Slider-->
+            <div class ='theme-switch-wrapper'>
+                <label class ='theme-switch' for ='themeCheckbox'>
+                    <input type ='checkbox' id ='themeCheckbox'>
+                    <span class="slider"></span>
+                </label>
+                <span class="mode-label">Light Mode</span>
+            </div>
+            <input type ='text' id="city" placeholder="Enter city name">
+            <button id = "search">Search</button>
+            <button id ='geoBtn'>📍 Use My Location</button>
+            <div id ="output"></div>
+            <!--Forecast Section-->
+            <h3>📅 5-Day Forecast</h3>
+            <canvas id ="forecastChart"></canvas>
+            <div id="forecastCards" class="forecast-cards"></div>
+        </div>
+        <script src ="main.js"></script>
+    </body>
+</html>
