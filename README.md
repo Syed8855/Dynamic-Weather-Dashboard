@@ -86,15 +86,10 @@ The Weather Dashboard is designed for both functionality and user experience, of
   project-root/
   
 ├── index.html          # Main HTML file
-
 ├── script.js            # Core JavaScript logic
-
 ├── style.css            # Styling for the dashboard
-
 └── netlify/
-
     └── functions/
-    
         └── getWeather.js 
 ---        
 
